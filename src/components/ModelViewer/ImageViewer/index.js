@@ -17,9 +17,8 @@
 import React from 'react';
 
 const ImageViewer = ({ model }) => {
-  const srcURL = `https://media.sketchfab.com/urls/${model}/dist/thumbnails/27a441be16a14368bea782ae2b1679f5/756e16cc8b1640cb8058f8252edbf51b.jpeg`;
   return (
-    <img src={srcURL} width='100%' />
+    <img src={`https://media.sketchfab.com/urls/${model}/dist/thumbnails/27a441be16a14368bea782ae2b1679f5/756e16cc8b1640cb8058f8252edbf51b.jpeg`} width='100%' alt='red car model' />
   )
 };
 

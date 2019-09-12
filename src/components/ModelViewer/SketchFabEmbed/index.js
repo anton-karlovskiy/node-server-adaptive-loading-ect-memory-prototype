@@ -17,9 +17,8 @@
 import React from 'react';
 
 const SketchFabEmbed = ({ model }) => {
-  const srcURL = `https://sketchfab.com/models/${model}/embed?autostart=1`;
   return (
-    <iframe title="sketchfab" width="100%" height="480" src={srcURL} allow="autoplay; fullscreen; vr" frameBorder="0" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    <iframe title='sketchfab' width='100%' height='480' src={`https://sketchfab.com/models/${model}/embed?autostart=1`} allow='autoplay; fullscreen; vr' frameBorder='0' mozallowfullscreen='true' webkitallowfullscreen='true'></iframe>
   );
 };
 

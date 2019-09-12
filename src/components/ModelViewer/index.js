@@ -14,16 +14,32 @@
  * limitations under the License.
  */
 
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import SketchFabEmbed from './SketchFabEmbed';
 import ImageViewer from './ImageViewer';
 
 const ModelViewer = ({ model }) => {
+  const [experienceType, setExperienceType] = useState(null);
+  useEffect(() => {
+    fetch('/network-memory-considerate-model')
+      .then(response => response.json())
+      .then(result => {
+        setExperienceType(result.experienceType);
+      });
+  }, []);
+
+  if (!experienceType) return <Fragment>Loading...</Fragment>;
+  console.log('[ModelViewer] experienceType => ', experienceType);
+
   return (
     <Fragment>
-      <ImageViewer model={model} />
-      <SketchFabEmbed model={model} />
+      { experienceType === 'heavy' && (
+        <SketchFabEmbed model={model} />
+      ) }
+      { experienceType === 'light' && (
+        <ImageViewer model={model} />
+      ) }
     </Fragment>
   );
 };
